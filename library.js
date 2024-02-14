@@ -4,11 +4,10 @@ function $(selector) {
 
         html: () => self.element,
         on: (event, callback) => {
-            event === 'hide' ? self.hide() : document.addEventListener(event, callback)
+            document.addEventListener(event, callback)
         },
         hide: () => {
-            self.element.style.display = 'bold'
-            alert(`${ selector } hidden`)
+            self.element.style.display = 'none'
         },
         attr: (name, value) => {
             if (value === null) {
@@ -27,6 +26,8 @@ function $(selector) {
 //     alert('clicked')
 // })
 
-// $('h2').on('hide')
+$('h2').on('click', () => {
+    $('h2').hide();
+})
 
-$('h1').attr('class', 'heading1')
+// $('h1').attr('class', 'heading1')
